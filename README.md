@@ -66,8 +66,7 @@ The project also involves building Azure infrastructure using **Bicep scripts**,
 
 ---
 
-## 📸 Screenshots
-*(Replace with actual project screenshots)*  
+## 📸 Screenshots  
 1. Azure DevOps Pipeline Overview.  
 2. Successful Deployment to DEV, PP, PROD.    
 3. AKS Autoscaling in action.
