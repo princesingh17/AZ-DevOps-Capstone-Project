@@ -1,78 +1,89 @@
-# Capstone Project – Azure CI/CD Multistage Pipeline for .NET Application
+# Skillup-Capstone-Project-Prince
 
-## 📌 Overview
-This Capstone Project demonstrates the end-to-end creation of a **CI/CD Multistage Pipeline** in Azure DevOps to build, test, and deploy a .NET application to **Development (DEV)**, **Pre-Production (PP)**, and **Production (PROD)** environments.  
-The project also involves building Azure infrastructure using **Bicep scripts**, implementing **SonarQube code analysis**, setting **release gates**, and configuring **AKS autoscaling**.
-
----
-
-## ✅ Project Implementation
-
-### **1. Azure DevOps Project Creation**
-- Created a new Azure DevOps project named:
-      Skillup-Capstone-Project-Prince
-  - Configured project settings and repository access.
-
-### **2. Code Setup**
-- Pulled the .NET application code from Git.
-- Stored and managed the source code in Azure Repos.
-
-### **3. Infrastructure Provisioning**
-- Built Azure Kubernetes Service (AKS) clusters for **DEV**, **PP**, and **PROD** environments using **Bicep scripts**.
-- Deployed each environment in isolated namespaces.
-
-### **4. Work Item Management**
-- Created **Azure Boards tickets**:
-- 1 ticket for DEV environment
-- 1 ticket for PP environment
-- 1 ticket for PROD environment
-- Assigned tickets to self for progress tracking.
-
-### **5. Build and Deploy to DEV**
-- Configured build pipeline to restore dependencies, build the .NET project, and generate artifacts.
-- Deployed the application to the **DEV AKS environment**.
-
-### **6. SonarQube Code Analysis**
-- Integrated **SonarQube server** with Azure DevOps.
-- Performed **static code analysis** before PP deployment to ensure code quality.
-
-### **7. Release Gates and PROD Deployment**
-- Configured **release gates** to enforce quality checks before production release.
-- Deployed the application to **PROD AKS environment**.
-
-### **8. AKS Autoscaling**
-- Configured **Cluster Autoscaler** to dynamically adjust AKS node count based on load.
-- Tested scaling by simulating high/low workloads.
+## Overview
+This project implements an **Azure CI/CD Multistage Pipeline** to build and deploy a .NET application across **DEV**, **PP**, and **PROD** environments using **Azure DevOps**.  
+The application is based on the [Microsoft eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb.git) sample, extended with Azure infrastructure provisioning and automated deployments.
 
 ---
 
-## 🧰 Tools & Services Used
-- **Azure DevOps** – Repos, Pipelines, Boards
-- **Azure Services** – AKS, Resource Groups, Azure Monitor
-- **Bicep** – Infrastructure as Code
-- **SonarQube** – Code Quality Analysis
-- **Kubernetes** – Application Deployment & Scaling
+## Project Architecture
+
+- **Source Code**: Microsoft eShopOnWeb (.NET 7 application)
+- **Infrastructure**: Azure Kubernetes Service (AKS) with three environments (DEV, PP, PROD) provisioned using **Bicep** scripts.
+- **CI/CD Pipeline**: Azure DevOps multistage pipeline for build, test, and deploy.
+- **Quality Gate**: SonarQube integration for code quality checks.
+- **Release Control**: Release gates for PROD deployment approval.
+- **Scalability**: AKS cluster autoscaling configured to respond to load changes.
 
 ---
 
-## 📚 Learnings
-- Creating **multistage pipelines** in Azure DevOps for .NET applications.
-- Using **Bicep scripts** to provision Azure infrastructure across multiple environments.
-- Managing project tasks and tracking work progress using **Azure Boards**.
-- Performing **SonarQube analysis** to ensure code quality before deployment.
-- Implementing **release gates** for controlled deployments.
-- Configuring and testing **AKS autoscaling** for workload optimization.
-- Troubleshooting pipeline and deployment issues in a multi-environment setup.
+## Steps Performed
+
+1. **Created Azure DevOps Project** – Project named `Skillup-Capstone-Project-Prince`.
+2. **Cloned Source Code** – Pulled `.NET` code from [GitHub eShopOnWeb repo](https://github.com/MicrosoftLearning/eShopOnWeb.git).
+3. **Provisioned Azure Infrastructure** – Used **Bicep scripts** to create AKS clusters for DEV, PP, and PROD.
+4. **Created Azure Boards** – One ticket per environment, assigned to self.
+5. **Built and Deployed to DEV** – Configured CI/CD to deploy to DEV AKS.
+6. **SonarQube Integration** – Static code analysis before deploying to PP.
+7. **Release Gates for PROD** – Approval checks before PROD deployment.
+8. **AKS Autoscaling** – Configured Horizontal Pod Autoscaler.
 
 ---
 
-## 📸 Screenshots  
-1. Azure DevOps Pipeline Overview.  
-2. Successful Deployment to DEV, PP, PROD.    
-3. AKS Autoscaling in action.
+## Pipeline Structure
+
+```mermaid
+graph LR
+A[Build Stage] --> B[Deploy to DEV]
+B --> C[SonarQube Analysis]
+C --> D[Deploy to PP]
+D --> E[Release Gates]
+E --> F[Deploy to PROD]
+```
 
 ---
 
-## 📜 Status
-**✅ Completed** – Fully functional CI/CD pipeline with automated deployments, quality checks, and AKS autoscaling implemented successfully.
+## Tools & Technologies
 
+- Azure DevOps (Repos, Pipelines, Boards, Artifacts)
+- Azure Kubernetes Service (AKS)
+- Bicep (Infrastructure as Code)
+- Docker (Containerization)
+- SonarQube (Code Quality Analysis)
+- Horizontal Pod Autoscaler (HPA)
+
+---
+
+## Project Proof & Screenshots
+
+Below are screenshots as evidence of project completion:
+
+1. **Azure DevOps Project Created**  
+   ![Azure DevOps Project](screenshots/project-created.png)
+
+2. **Pipeline Execution (DEV → PP → PROD)**  
+   ![Pipeline Execution](screenshots/pipeline-run.png)
+
+3. **SonarQube Code Analysis Report**  
+   ![SonarQube Analysis](screenshots/sonarqube-report.png)
+
+4. **Azure Boards Tickets**  
+   ![Azure Boards](screenshots/azure-boards.png)
+
+5. **AKS Autoscaling in Action**  
+   ![AKS Autoscaling](screenshots/aks-autoscaling.png)
+
+---
+
+## Learnings
+
+- Gained experience in **end-to-end Azure DevOps pipelines**.
+- Learned **Bicep scripting** for AKS provisioning.
+- Implemented **SonarQube quality gates** in pipelines.
+- Understood **autoscaling in AKS** for better performance.
+
+---
+
+## Repository
+
+Source Code: [Microsoft eShopOnWeb](https://github.com/MicrosoftLearning/eShopOnWeb.git)
