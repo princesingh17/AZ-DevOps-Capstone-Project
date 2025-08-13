@@ -60,7 +60,7 @@ Below are screenshots as evidence of project completion:
 
 1. **Azure DevOps Project Created**
     
-   <img width="1361" height="639" alt="image" src="./scrrenshots/Image21.png" />
+   <img width="1361" height="639" alt="image" src="./screenshots/Image21.png" />
 
 
 2. **Pipeline Execution (DEV → PP → PROD)**
@@ -176,7 +176,10 @@ stages:
                 kubectl apply -f $(System.DefaultWorkingDirectory)/k8s/deployment.yml
                 kubectl apply -f $(System.DefaultWorkingDirectory)/k8s/service.yml
    
-   <img width="1365" height="678" alt="image" src="./screenshots/Image22.png" />
+
+
+
+   <img width="1365" height="678" alt="image" src="./screenshots/image22.png" />
 
    
 
